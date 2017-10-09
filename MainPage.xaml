@@ -1,0 +1,33 @@
+﻿<Page
+    x:Class="InkMath.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:InkMath"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <RelativePanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <TextBlock x:Name="TitleTextBlock" Text="InkMath" Style="{StaticResource TitleTextBlockStyle}" Margin="10,10,0,0"/>
+        <RelativePanel x:Name="OperationButtons" RelativePanel.Below="TitleTextBlock" Margin="0,10,10,0">
+            <Button x:Name="MultiplicationButton" Content="*" Margin="10,0" Width="32" Height="32"/>
+            <Button x:Name="DivisionButton" Content="/" RelativePanel.RightOf="MultiplicationButton" Margin="0,0,10,0" Width="32" Height="32"/>
+            <Button x:Name="AdditionButton" Content="+" RelativePanel.RightOf="DivisionButton" Margin="0,0,10,0" Width="32" Height="32"/>
+            <Button x:Name="SubtractionButton" Content="-" RelativePanel.RightOf="AdditionButton" Margin="0,0,10,0" Width="32" Height="32"/>
+        </RelativePanel>
+        <RelativePanel x:Name="MainContent" RelativePanel.Below="OperationButtons" Margin="10,10,0,0">
+            <TextBlock x:Name="EquationTextBlock" Text="-" TextAlignment="Center" FontSize="48" VerticalAlignment="Center" Width="512" Margin="0,36,0,-36"/>
+            <Grid x:Name="InputGrid" BorderBrush="Black" BorderThickness="4" RelativePanel.RightOf="EquationTextBlock">
+                <TextBlock x:Name="RecoTextBlock" Text="" TextAlignment="Center" FontSize="48" VerticalAlignment="Center"/>
+                <InkCanvas x:Name="SolutionInkCanvas" Height="128" Width="128"/>
+            </Grid>
+            <Grid RelativePanel.RightOf="InputGrid" Height="128" Width="128">
+                <TextBlock x:Name="ResultTextBlock" Text="-" TextAlignment="Center" FontSize="48" VerticalAlignment="Center" />
+            </Grid>
+        </RelativePanel>
+        <RelativePanel RelativePanel.Below="MainContent" Margin="10,10,0,0">
+            <Button x:Name="SpeechButton" Content="Speech" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="112" Click="SpeechButton_Click" Margin="0,0,10,0"/>
+            <Button x:Name="ReadButton" Content="Read" Width="112" RelativePanel.RightOf="SpeechButton" Click="ReadButton_Click"/>
+        </RelativePanel>
+    </RelativePanel>
+</Page>
